@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>JavaScript with DOM</title>
+ </head>
+<body>
+    <h1>Author Entry</h1>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="secret">The hidden author name</label>
+    <input type ="password" id="secret" name="secret" value="Dickens"> <br>
+
+    <label for="author">Guess the author</label>
+    <input type ="text" id="author" name="author"> <br>
+
+    <input type="button" onclick=" checkAuthor()" value="Check the guess">
+</form>
+
+
+<p id="result">Result</p>
+
+<script> 
+var good =0
+var oops =0
+function  checkAuthor(){
+    console.log("Getting form values")
+    secret = document.getElementById("secret").value
+    author = document.getElementById("author").value
+    out = document.getElementById("result")
+    if(secret==author){
+        good = good+1
+        out.innerHTML = alert("You got it right")
+    } else {
+        oops = oops+1
+        out.innerHTML = alert("Sorry")
+    }
+    out.innerHTML = ("Good - "+good+" OOPS - "+oops)
+}
+</script>
+
+</body>
+</html> 
