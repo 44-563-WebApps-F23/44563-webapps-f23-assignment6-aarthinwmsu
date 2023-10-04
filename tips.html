@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ <head><title>TIPS</title></head>
+<body>
+
+<h2>shows tip amounts</h2>
+
+<label>Enter base amount</label>
+<input type="number" value="50" id="amount">
+<label>Enter the tip percent</label>
+<input type="number" value="15" id="tip">
+
+<input type="button" onclick="tips()" id="tips" value="Show tip">
+<p id="tipsresult"></p>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<form>
+    <input type="radio" id="sum" name="Addition" value="sum"   
+      checked >
+    <label>sum</label></br>
+  
+    <input type="radio" id="diff" name="Subtraction" 
+       value="difference">
+    <label>diff</label></br>
+  
+    <input type="radio" id="multiply" name="Multiplication"   
+       value="product">
+    <label>mult</label></br>
+
+    <input type="button" onclick="chooseOp()" value="Select Operation">
+  </form>
+  <p id="calcresults"></p>
+  
+
+<script> 
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } 
+    else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+
+function tips() {
+    myOutput = ""
+    amount = document.getElementById("amount").value
+    tip = parseInt(document.getElementById("tip").value)
+    out = document.getElementById("tipsresult")
+    toShow = ""
+    for (let i = 0; i < 5; i++) {
+          const calculatedTip = amount * (tip / 100);
+          toShow += `${tip}% is ${calculatedTip.toFixed(1)}; `;
+          tip += 4;
+        }
+        myOutput+=toShow;
+        document.getElementById("tipsresult").innerHTML = `Tips are: ${myOutput}`;
+}
+function chooseOp(){
+    
+}
+</script>
+
+</body>
+</html> 
