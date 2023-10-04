@@ -27,22 +27,18 @@
 <p id="result">This text will be replaced </p>
 
 <form>
-    <input type="radio" id="sum" name="Addition" value="sum"   
-      checked >
-    <label>sum</label></br>
-  
-    <input type="radio" id="diff" name="Subtraction" 
-       value="difference">
-    <label>diff</label></br>
-  
-    <input type="radio" id="multiply" name="Multiplication"   
-       value="product">
-    <label>mult</label></br>
+    <label for="sum">sum</label>
+    <input type="radio" id="sum" name="Addition" value="sum">
+    
+    <label for="diff">diff</label>
+    <input type="radio" id="diff" name="Subtraction" value="difference">
+
+    <label for="multiply">mult</label>
+    <input type="radio" id="multiply" name="Multiplication" value="product">
 
     <input type="button" onclick="chooseOp()" value="Select Operation">
   </form>
   <p id="calcresults"></p>
-  
 
 <script> 
 
@@ -76,7 +72,27 @@ function tips() {
         document.getElementById("tipsresult").innerHTML = `Tips are: ${myOutput}`;
 }
 function chooseOp(){
-    
+    amount = parseInt(document.getElementById("amount").value)
+    tip = parseInt(document.getElementById("tip").value)
+    let inputSum = document.getElementById("sum");
+    let inputDiff = document.getElementById("diff");
+    let inputMult = document.getElementById("multiply");
+    if (inputSum.checked) {
+          output = amount + tip;
+          label = inputSum.placeholder;
+        } 
+    else if (inputDiff.checked) {
+          output = amount - tip;
+          label = inputDiff.placeholder;
+        } 
+    else if (inputMult.checked) 
+        {
+          output = amount * tip;
+          label = inputMult.placeholder;
+        }
+        document.getElementById(
+          "calcresults"
+        ).innerHTML = `${label} of ${amount} and ${tip} is ${output}`;
 }
 </script>
 
