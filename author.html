@@ -26,11 +26,12 @@
 var good = 0
 var oops = 0
 var useImage = 1
-function  checkAuthor(){
+function  checkAuthor() {
     console.log("Getting form values")
     secret = document.getElementById("secret").value
     author = document.getElementById("author").value
     out = document.getElementById("result")
+    if(oops<7) {
     if(secret==author){
         good = good+1
         out.innerHTML = alert("You got it right")
@@ -39,6 +40,10 @@ function  checkAuthor(){
         out.innerHTML = alert("Sorry")
     }
     out.innerHTML = ("Good - "+good+" OOPS - "+oops)
+    }
+    else{
+        out.innerHTML = alert("Sorry, ran out of guesses.")
+    }
 }
 function selectImage(){
     var result = document.getElementById("image")
