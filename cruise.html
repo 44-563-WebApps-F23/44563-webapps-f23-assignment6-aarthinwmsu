@@ -32,16 +32,17 @@
     <br>
     <input type="button" onclick="updateCruise()" value="Update the cruise">
 </form>
+<p id="updatecruiseresult"></p>
 
 
 <script> 
-var my_cruise = {cabin:"true", bfs:"true",poolpass:"true"};
+var my_cruise = {};
 function selectCruise()
 {
     my_cruise.cabin = document.getElementById("SharesCabin").checked;
     my_cruise.bfs = document.getElementById("Breakfast").checked;
     my_cruise.poolpass = document.getElementById("PoolPass").checked;
-    out = document.getElementById("cruiseresults").checked;
+    out = document.getElementById("cruiseresults");
     out.innerHTML = JSON.stringify(my_cruise);
 }
 function updateCruise (){
@@ -50,7 +51,7 @@ function updateCruise (){
     price = document.getElementById("price").value
     my_cruise.days = price
     
-    out = document.getElementById("result")
+    out = document.getElementById("updatecruiseresult")
     out.innerHTML=JSON.stringify(my_cruise)
 }
 </script>

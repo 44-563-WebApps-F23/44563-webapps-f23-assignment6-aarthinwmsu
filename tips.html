@@ -15,13 +15,13 @@
 
 <form>
     <label for="sum">sum</label>
-    <input type="radio" id="sum" name="Addition" value="sum">
+    <input type="radio" id="sum" name="operation" value="sum">
     
     <label for="diff">diff</label>
-    <input type="radio" id="diff" name="Subtraction" value="difference">
+    <input type="radio" id="diff" name="operation" value="difference">
 
     <label for="multiply">mult</label>
-    <input type="radio" id="multiply" name="Multiplication" value="product">
+    <input type="radio" id="multiply" name="operation" value="product">
 
     <input type="button" onclick="chooseOp()" value="Select Operation">
   </form>
@@ -52,16 +52,16 @@ function chooseOp(){
     let inputMult = document.getElementById("multiply");
     if (inputSum.checked) {
           output = amount + tip;
-          label = inputSum.placeholder;
+          label = "Addition";
         } 
     else if (inputDiff.checked) {
           output = amount - tip;
-          label = inputDiff.placeholder;
+          label = "Subtraction";
         } 
     else if (inputMult.checked) 
         {
           output = amount * tip;
-          label = inputMult.placeholder;
+          label = "Multiplication";
         }
         document.getElementById(
           "calcresults"
